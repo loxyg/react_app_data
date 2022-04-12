@@ -21,7 +21,7 @@ const AllUsers = () => {
 function RenderAuthor (values: User) {
     return (
         author && (
-                <div className="user-profile-wrapper">
+                <div className="Users-list-wrapper">
                     <Field label="Name">
                         <span>{values.name}</span>
                     </Field>
