@@ -1,8 +1,11 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer, useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Picker_Picture, Post, PostContent, User } from '../api/types'
 import Field from '../private/Field'
 import ImageGalleryPicker from './ImageGalleryPicker'
+import { getPost } from '../api/post'
+import { getAllUser } from '../api/user'
+
 
 type FormEvent =
     | React.ChangeEvent<HTMLTextAreaElement>
@@ -26,7 +29,31 @@ const EditPost = () => {
         {} as Post | PostContent
     )
     let { id } = useParams() // post id from url
+
+    console.log('id', id)
     const navigate = useNavigate() // create a navigate function instance
+
+    async function _getPost(id:number){
+        const data= await getPost(id);
+        convertToFormData(data);
+    }
+
+    async function _getUsers(){
+        const data= await getAllUser();
+        console.log('data', data)
+        setUsers(data)
+    }
+
+    useEffect(() =>{
+        // Chaque fois que l'id change
+        _getPost(Number(id));
+    },[id]);
+
+
+    useEffect(() =>{
+        // Au start du composant
+        _getUsers();
+    },[]);
 
     function handleModalPictureSubmit(picture: Picker_Picture) {
         setFormData({
@@ -93,7 +120,11 @@ const EditPost = () => {
         if (formData.userId) {
             // [WORK]
             // You need to find the author name with the server
-            return '[TO DO]'
+            const selectedUser = users.find((user) => user.id === formData.userId)
+            console.log("selectedUser", selectedUser);
+            if (selectedUser){
+                return selectedUser.name
+            }
         } else {
             return 'Unknown author'
         }
@@ -106,6 +137,7 @@ const EditPost = () => {
                     <input
                         onBlur={handleChange}
                         name="title"
+                        onChange={handleChange}
                         className="input"
                         type="text"
                         placeholder="Text input"
@@ -116,6 +148,7 @@ const EditPost = () => {
                     <textarea
                         onBlur={handleChange}
                         name="body"
+                        onChange={handleChange}
                         className="textarea"
                         placeholder="e.g. Hello world"
                         value={formData.body}
