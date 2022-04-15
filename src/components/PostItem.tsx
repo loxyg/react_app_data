@@ -28,6 +28,8 @@ const PostItem = (props: Post) => {
                         </div>
                     </div>
                     <div className="content post-content">{props.body}</div>
+                    
+
                     {author && (
                         <footer className="card-footer">
                             <Link
@@ -37,8 +39,10 @@ const PostItem = (props: Post) => {
                                 {author ? author.name : 'not defined'}
                             </Link>
                         </footer>
+                        
                     )}
                 </div>
+                
             </div>
         </Link>
     )

@@ -88,3 +88,17 @@
   margin-right: auto;
   padding: 20px;
 }
+
+/* Pagination */
+
+.pagination {
+  margin-bottom: 20px;
+}
+
+.pagination-previous {
+  margin-left: 5vw;
+}
+
+.pagination-next {
+  margin-right: 5vw;
+}

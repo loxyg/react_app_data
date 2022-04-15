@@ -59,7 +59,7 @@ const ImageGalleryPicker = ({ onClose, onSubmit }: ImageGalleryPickerProps) => {
         getPicture();
       }, []);
       
-    return (
+return (
         <div className="modal post-image-modal">
             <div className="modal-background"></div>
             <div className="modal-card">

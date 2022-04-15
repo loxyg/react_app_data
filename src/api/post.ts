@@ -33,9 +33,8 @@ async function updatePost(post: Post): Promise<Post> {
 }
 
 async function deletePost(postID: Post['id']): Promise<Post['id']> {
-    // delete a existing post
-    // [TODO] remove this return to use a fetch API
-    return 1
+    const reponse = await fetch(`${base_url}/${postID}`)
+    return await reponse.json()
 }
 
 export { getPost, getPosts, deletePost, updatePost, createPost }

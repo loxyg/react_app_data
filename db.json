@@ -4,18 +4,17 @@
       "id": 1,
       "title": "title",
       "userId": 1,
-      "body": "body",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",
       "postImageUrl": "https://picsum.photos/1280/960"
     },
     {
       "id": 2,
       "title": "title 2",
       "userId": 2,
-      "body": "body 2",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",
       "postImageUrl": "https://picsum.photos/1280/960"
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -50,5 +49,4 @@
       }
     }
   ]
-  
 }
