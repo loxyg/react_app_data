@@ -15,9 +15,10 @@
       "postImageUrl": "https://picsum.photos/id/10/2500/1667"
     },
     {
-      "title": "test test",
-      "body": "test test",
-      "postImageUrl": "https://picsum.photos/id/100/2500/1656",
+      "title": "test test test",
+      "body": "test test test",
+      "userId": 2,
+      "postImageUrl": "https://picsum.photos/id/1/5616/3744",
       "id": 3
     }
   ],

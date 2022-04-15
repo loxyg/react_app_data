@@ -141,6 +141,7 @@ const EditPost = () => {
                     <input
                         onBlur={handleChange}
                         name="title"
+                        onChange={handleChange}
                         className="input"
                         type="text"
                         placeholder="Text input"
@@ -151,7 +152,7 @@ const EditPost = () => {
                     <textarea
                         onBlur={handleChange}
                         name="body"
-
+                        onChange={handleChange}
                         className="textarea"
                         placeholder="e.g. Hello world"
                         value={formData.body}

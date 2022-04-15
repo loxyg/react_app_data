@@ -35,21 +35,21 @@ npm start or yarn start
 
 # Les fonctionnalités attendues (MVP)
 
-- Avoir sur votre Homepage l'affichage des vos posts
+- Avoir sur votre Homepage l'affichage des vos posts --> ok
 
-- Créer ou éditer un post
+- Créer ou éditer un post --> ok
 
-- Associé une photo à un post
+- Associé une photo à un post --> ok
 
-- Associé un auteur à un post
+- Associé un auteur à un post --> ok
 
-- Détruire un post
+- Détruire un post --> ok
 
-- Le nom de l'auteur devra être visible dans le post
+- Le nom de l'auteur devra être visible dans le post --> ok
 
-- Avoir une page listant l'ensemble des auteurs
+- Avoir une page listant l'ensemble des auteurs --> ok mais
 
-- Créer ou éditer un auteur
+- Créer ou éditer un auteur 
 
 - Détruire un auteur
 
