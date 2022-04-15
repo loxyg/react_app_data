@@ -153,6 +153,8 @@ const AllUsers = () => {
         </>
     )
 
+// Bon on a un petit soucis :
+// apres la creation d'un utilisateur, tant que cet utilisateur est dans la DB, la page all users devient page blanche
 
 
 }

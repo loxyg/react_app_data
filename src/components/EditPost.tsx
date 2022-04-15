@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Picker_Picture, Post, PostContent, User } from '../api/types'
 import Field from '../private/Field'
 import ImageGalleryPicker from './ImageGalleryPicker'
-import { getPost } from '../api/post'
+import { getPost, deletePost, updatePost, createPost } from '../api/post'
 import { getAllUser } from '../api/user'
 
 
@@ -65,16 +65,22 @@ const EditPost = () => {
     async function handleAddOrCreatePost(
         event: React.FormEvent<HTMLFormElement>
     ) {
-        // remove default reloading page
-        event.preventDefault()
+        console.log(formData)
+        event.preventDefault()   // remove default reloading page
 
-        // back to Home
-        navigate('/')
+        if (id) {
+            await updatePost(formData as Post)
+        } else {
+            await createPost(formData)
+        }
+
+
+        navigate('/') // back to Home
     }
 
     async function handleDeletePost() {
-        // back to Home
-        navigate('/')
+        await deletePost(Number(id))
+        navigate('/') // back to Home
     }
 
     function handleChange(event: FormEvent) {
@@ -118,8 +124,6 @@ const EditPost = () => {
     function getSelectedAuthor() {
         // prevent bad request and use a placeholder if no data
         if (formData.userId) {
-            // [WORK]
-            // You need to find the author name with the server
             const selectedUser = users.find((user) => user.id === formData.userId)
             console.log("selectedUser", selectedUser);
             if (selectedUser){
@@ -137,7 +141,6 @@ const EditPost = () => {
                     <input
                         onBlur={handleChange}
                         name="title"
-                        onChange={handleChange}
                         className="input"
                         type="text"
                         placeholder="Text input"
@@ -148,7 +151,7 @@ const EditPost = () => {
                     <textarea
                         onBlur={handleChange}
                         name="body"
-                        onChange={handleChange}
+
                         className="textarea"
                         placeholder="e.g. Hello world"
                         value={formData.body}

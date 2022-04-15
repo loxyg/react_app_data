@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { getPosts } from '../api/post'
 import { Post } from '../api/types'
+import { User } from '../api/types'
+import { getAllUser } from '../api/user'
 import PostItem from './PostItem'
 
 
 const PostsList = () => {
     const [posts, setPosts] = useState<Array<Post>>([])
     const [loading, setLoading] = useState(false)
+    const [users, setUsers] = useState<Array<User>>([])
 
     async function _getposts(){
         console.log("Affichage des posts");
@@ -17,6 +20,17 @@ const PostsList = () => {
     useEffect(() => {
       _getposts();
     }, []);
+
+    async function _getAllUsers() {
+        console.log("useEffect");
+        const data = await getAllUser();
+        setUsers(data);
+    }
+
+    useEffect(() => {
+        _getAllUsers();
+    }, [])
+
 
     function renderItem(values: Post) {
         return (

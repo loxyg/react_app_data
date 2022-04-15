@@ -21,20 +21,20 @@ async function getPosts(): Promise<Array<Post>> {
 async function createPost(post: PostContent): Promise<Post> {
     // create a new post
     // [TODO] remove this return to use a fetch API
-    const reponse = await fetch(base_url)
-    return await reponse.json()
+    const { data } = await axios.post(`${base_url}`, post)
+    return data
 }
 
 async function updatePost(post: Post): Promise<Post> {
     // update a existing post
     // [TODO] remove this return to use a fetch API
-    const reponse = await fetch(base_url)
-    return await reponse.json()
+    const { data } = await axios.put(`${base_url}/${post.id}`, post)
+    return data
 }
 
 async function deletePost(postID: Post['id']): Promise<Post['id']> {
-    const reponse = await fetch(`${base_url}/${postID}`)
-    return await reponse.json()
+    const { data } = await axios.delete(`${base_url}/${postID}`)
+    return data
 }
 
 export { getPost, getPosts, deletePost, updatePost, createPost }
